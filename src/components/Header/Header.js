@@ -12,7 +12,7 @@ const Header = () => {
 	return (
 		<Row className="justify-content-center">
 			<Col xs="auto" style={style}><Image src="assets/logo.png"></Image></Col>
-			<Col className="text-left font-weight-bold" style={style}><h5>TTS UPDATE GENERATOR</h5></Col>
+			<Col className="text-center font-weight-bold" style={style}><h5>TTS-PTM UPDATE GENERATOR</h5></Col>
 		</Row >
 	);
 }

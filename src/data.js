@@ -75,7 +75,7 @@ const stations = [
 	{ engName: "Maggona", sinName: "මග්ගොන" },
 	{ engName: "Beruwela", sinName: "බේරුවෙල" },
 	{ engName: "Hettimulla", sinName: "හෙට්ටිමුල්ල" },
-	{ engName: "Aluthgama", sinName: "අලුත්ගම" },
+	{ engName: "Aluthgama", sinName: "අලුත්ගම" }
 ];
 
 const trains = [

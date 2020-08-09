@@ -13,6 +13,28 @@ import { stations, trains } from '../data'
 import './App.css';
 
 class App extends Component {
+	state = {
+		trainId: -1,
+		stationId: -1,
+		stations: stations
+	}
+
+	trainChangeHandler = (event) => {
+		this.setState({
+			trainId: parseInt(event.target.value),
+			stations: this.getStationsOfTrain(parseInt(event.target.value))
+		});
+	}
+
+	stationChangeHandler = (event) => {
+		this.setState({ stationId: event.target.value });
+	}
+
+	getStationsOfTrain = (trainId) => {
+		const startStationId = trains[trainId].startStationId;
+		const endStationId = trains[trainId].endStationId;
+		return startStationId < endStationId ? stations.slice(startStationId, endStationId + 1) : stations.slice(endStationId, startStationId + 1);
+	}
 
 	render() {
 		return (
@@ -22,8 +44,8 @@ class App extends Component {
 						<Header></Header>
 						<div className="border border-primary rounded shadow"
 							style={{ padding: "1rem", overflow: "hidden" }}>
-							<Train trains={trains}></Train>
-							<Station stations={stations}></Station>
+							<Train options={trains} value={this.state.trainId} changed={this.trainChangeHandler}></Train>
+							<Station options={this.state.stations} value={this.state.stationId} changed={this.stationChangeHandler}></Station>
 						</div>
 					</Col>
 				</Row>

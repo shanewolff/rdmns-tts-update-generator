@@ -5,14 +5,14 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 
 const Train = (props) => {
-	const options = props.trains.map(train => <option key={train.id} value={train.id} disabled>{train.engName}</option>);
+	const options = props.options.map(train => <option key={train.id} value={train.id}>{train.engName}</option>);
 	options.unshift(<option key="-1" value="-1" disabled>Choose your train</option>);
 	return (
 		<Row>
 			<Col>
 				<Form.Group>
 					<Form.Label className="font-weight-bold">Train</Form.Label>
-					<Form.Control as="select">
+					<Form.Control as="select" value={props.value} onChange={props.changed}>
 						{options}
 					</Form.Control>
 				</Form.Group>
